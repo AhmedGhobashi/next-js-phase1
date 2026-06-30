@@ -1,0 +1,10 @@
+[video-2-notes]:
+1- you can't use even handlers or hooks i.e. useState() in next-js, by default,
+   because whatever you add or do in next-js it runs in the server.
+   and to solve this , you should use 'use client' on the top of your code.
+
+[video-3-notes]:
+1- to make the fixed header rendered in all pages and the other children under it i will simply
+   go to the file layout.tsx and import the Header component upon the {children} elements.
+    And to make it separated from the content (not covering it) we will just put 
+    {children} into a wrapper element we know from html <main> </main>
