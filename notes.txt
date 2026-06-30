@@ -2,9 +2,62 @@
 1- you can't use even handlers or hooks i.e. useState() in next-js, by default,
    because whatever you add or do in next-js it runs in the server.
    and to solve this , you should use 'use client' on the top of your code.
+   
+---------------------------------------------------
 
 [video-3-notes]:
 1- to make the fixed header rendered in all pages and the other children under it i will simply
    go to the file layout.tsx and import the Header component upon the {children} elements.
     And to make it separated from the content (not covering it) we will just put 
-    {children} into a wrapper element we know from html <main> </main>
+    {children} into a wrapper element we know from html <main> </main>.
+
+---------------------------------------------------
+
+[video-4-notes]: fetching data and error page:
+1- we do fetch here like we do in the normal web API
+   because next js extends this from the web api itself
+   we can simply do asyn ComponentName and await fetch ().
+2- Erro Handler if(!res.ok){} 
+   (because sometimes people may fetch the wrong link).
+   we will make error.tsx page in app folder (a global error message)
+   then we will try to connect the "throw new Error()" from the products page to the error.tsx page.
+
+   - we can also make a specific error message for a specific page i.e. for search page so, 
+   in search folder we will make an error file error.tsx and also recieves {error: Error, reser: ()=>void}
+   and we can customize the error message for this search page too.
+
+   note: don't forget to "use client" in error.tsx files
+
+   
+---------------------------------------------------
+
+
+
+
+---------------------------------------------------
+
+
+
+
+
+---------------------------------------------------
+
+
+
+
+
+
+---------------------------------------------------
+
+
+
+
+
+---------------------------------------------------
+
+
+
+
+---------------------------------------------------
+
+ 

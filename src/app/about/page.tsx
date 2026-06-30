@@ -1,6 +1,7 @@
 
 
 function AboutPage() {
+
   return (
     <div>
       ABOUT PAGE

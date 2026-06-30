@@ -1,6 +1,7 @@
-import React from 'react'
 
 function SearchPage() {
+
+  throw new Error("error search page!")
   return (
     <div>
       Searching Page
