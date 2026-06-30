@@ -30,7 +30,54 @@
 
    
 ---------------------------------------------------
+[video-5-notes]: Footer & Master Dynamic Routing & Custom 404 Pages:
 
+"in Dynamic routes"
+1- التغيير الجديد في 
+Next.js 15 (Asynchronous Params)
+إذا كنت تستخدم 
+Next.js 15
+ أو أحدث، فقد حدث تغيير جذري في طريقة التعامل مع الـ 
+ params. 
+ 
+أصبحت الـ 
+params 
+عبارة عن 
+Promise 
+(مستقبلية) ويجب انتظارها 
+(await) 
+قبل استخدامها.
+
+بما أن دالتك 
+async
+ بالفعل، يمكنك حل المشكلة مباشرة عبر تفكيك الـ 
+ params 
+ وانتظارها.
+
+lets assume u will make dynamic route link in posts to make u reach the post u clicked like this: 
+    <Link href={`/posts/${post.id}`}>Read Well...</Link>
+    this ${post.id} the dynamic route will be recieved in the page in this structure..
+    posts>>[ID]>>page.tsx (the page u wanna show the clicked post in, dynamically) then u can use this:
+
+    ####
+      interface PageProps {
+  params: Promise<{ Id هذا اسم المجلد بين المستطيلين: string }>; 
+}
+const Id = async ({params}: PageProps) => {
+  const {Id}= await params;
+  console.log("Params id", Id);
+    const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${Id}`);
+    const post: TPosts = await res.json();
+  return (
+  <>
+    { post&& (<div  className=" text-3xl p-4 text-center bg-blue-500 rounded-2xl text-white shadow-md shadow-emerald-200 hover:scale-105 hover:bg-blue-400 transition-all">
+          <h2 className="font-bold text-black ">{post.title} {}</h2>
+          <p className="text-2xl">{post.body}</p>
+          <Link href='/posts'> wanna go back to posts?..</Link>
+        </div>)}
+  </>
+  )}
+    ###
 
 
 

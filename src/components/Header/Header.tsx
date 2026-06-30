@@ -26,9 +26,9 @@ function Header() {
 
             <nav className="hidden md:flex items-center ">
                 <div className="flex items-center justify-between space-x-4 ">
-                    <Link className='text-gray-600 hover:text-blue-600 transition-colors capitalize'  href={"about"}>about</Link>
-                    <Link className='text-gray-600 hover:text-blue-600 transition-colors capitalize'  href={"products"}>product</Link>
-                    <Link className='text-gray-600 hover:text-blue-600 transition-colors capitalize'  href={"products/search"}>search</Link>
+                    <Link className='text-gray-600 hover:text-blue-600 transition-colors capitalize'  href={"/about"}>about</Link>
+                    <Link className='text-gray-600 hover:text-blue-600 transition-colors capitalize'  href={"/posts"}>posts</Link>
+                    <Link className='text-gray-600 hover:text-blue-600 transition-colors capitalize'  href={"/contact-us"}>contact-us</Link>
                 </div>
             </nav>
 
@@ -48,9 +48,9 @@ function Header() {
     </div>
             {isOpen&&(
             <div className="flex flex-col items-center justify-between space-y-2 bg-[#ded7d7]">
-                <Link className='text-gray-600 hover:text-blue-600 transition-colors capitalize'  href={"about"}>about</Link>
-                <Link className='text-gray-600 hover:text-blue-600 transition-colors capitalize'  href={"products"}>product</Link>
-                <Link className='text-gray-600 hover:text-blue-600 transition-colors capitalize'  href={"products/search"}>search</Link>
+                <Link className='text-gray-600 hover:text-blue-600 transition-colors capitalize'  href={"/about"}>about</Link>
+                <Link className='text-gray-600 hover:text-blue-600 transition-colors capitalize'  href={"/posts"}>posts</Link>
+                <Link className='text-gray-600 hover:text-blue-600 transition-colors capitalize'  href={"/contact-us"}>ContactUs</Link>
             </div>
         )}
     </header>

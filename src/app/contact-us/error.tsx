@@ -1,12 +1,12 @@
 'use client'
 
 
-type TErrorSearchPage ={
+type TErrorContactUsPage ={
     error: Error;
     reset: ()=> void;
 }
 
-const error = ({error, reset}: TErrorSearchPage) => {
+const error = ({error, reset}: TErrorContactUsPage) => {
   return (
     <div>
       <h1 className="  text-red-600 font-bold">{error?.message}</h1>
@@ -15,4 +15,4 @@ const error = ({error, reset}: TErrorSearchPage) => {
   )
 }
 
-export default error
+export default error;

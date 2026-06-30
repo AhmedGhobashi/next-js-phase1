@@ -1,7 +1,7 @@
 import { TPosts } from "@/utils/types";
 import PostItem from "@/components/PostItem/PostItem";
 
-const ProductsPage = async() =>{
+const Posts = async() =>{
   const res = await fetch("https://jsonplaceholder.typicode.com/posts" );
   if(!res.ok){
     throw new Error("failed to get data");
@@ -19,4 +19,4 @@ const ProductsPage = async() =>{
   )
 }
 
-export default ProductsPage;
+export default Posts;
