@@ -82,7 +82,10 @@ const Id = async ({params}: PageProps) => {
 
 
 ---------------------------------------------------
-
+video-6: Image In Next & Home Page UI:
+1- you can add Image tag from next js, and the src: string|staticOmport, and alt 
+  are required properties. the others are optional
+2- also next js makes the image size is less than the original, and maked the image responsive
 
 
 
