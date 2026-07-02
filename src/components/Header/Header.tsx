@@ -29,6 +29,7 @@ function Header() {
                     <Link className='text-gray-600 hover:text-blue-600 transition-colors capitalize'  href={"/about"}>about</Link>
                     <Link className='text-gray-600 hover:text-blue-600 transition-colors capitalize'  href={"/posts"}>posts</Link>
                     <Link className='text-gray-600 hover:text-blue-600 transition-colors capitalize'  href={"/contact-us"}>contact-us</Link>
+                    <Link className='text-gray-600 hover:text-blue-600 transition-colors capitalize'  href={"/admin"}>admin</Link>
                 </div>
             </nav>
 
@@ -51,6 +52,7 @@ function Header() {
                 <Link className='text-gray-600 hover:text-blue-600 transition-colors capitalize'  href={"/about"}>about</Link>
                 <Link className='text-gray-600 hover:text-blue-600 transition-colors capitalize'  href={"/posts"}>posts</Link>
                 <Link className='text-gray-600 hover:text-blue-600 transition-colors capitalize'  href={"/contact-us"}>ContactUs</Link>
+                <Link className='text-gray-600 hover:text-blue-600 transition-colors capitalize'  href={"/admin"}>admin</Link>
             </div>
         )}
     </header>

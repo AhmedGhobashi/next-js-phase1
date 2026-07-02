@@ -12,7 +12,7 @@ const Hero = () => {
             </p>
         </div>
         <div>
-            <Image src = {HeroImage} alt="blue image" className="h-100 w-100" />
+            <Image src = {HeroImage} alt="blue image" className="h-100 w-100" loading='eager'/>
         </div>
 
     </div>

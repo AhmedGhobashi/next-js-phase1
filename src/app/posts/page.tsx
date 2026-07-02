@@ -1,8 +1,9 @@
 import { TPosts } from "@/utils/types";
 import PostItem from "@/components/PostItem/PostItem";
+import { cache } from "next/dist/server/use-cache/use-cache-wrapper";
 
 const Posts = async() =>{
-  const res = await fetch("https://jsonplaceholder.typicode.com/posts" );
+  const res = await fetch("https://jsonplaceholder.typicode.com/posts", {cache: "no-store"} );
   if(!res.ok){
     throw new Error("failed to get data");
   }

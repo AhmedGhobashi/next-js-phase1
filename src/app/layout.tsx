@@ -6,6 +6,8 @@ import "./globals.css";
 import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
 
+import { ToastContainer} from "react-toastify";
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -33,6 +35,8 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col">
         <Header/>
+
+          <ToastContainer />
 
           <main className="container mx-auto px-4 w-4/5 py-2 mt-16">
             {children}

@@ -3,7 +3,7 @@ const WebPlans = () => {
   return (
     <div className='bg-linear-to-br from-gray-100 to-gray-200 py-16 my-12 rounded-2xl'>
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
-            <div className='bg-white p-12 rounded-3xl shadow-xl mb-4'>
+            <div className='bg-white p-12 rounded-3xl shadow-xl mb-8'>
                 <h2 className='bg-linear-to-r from-emerald-600 to-cyan-200 text-4xl md:text-5xl font-extrabold text-center text-transparent bg-clip-text mb-6'>
                     web plans
                 </h2>

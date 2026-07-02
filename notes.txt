@@ -91,20 +91,34 @@ video-6: Image In Next & Home Page UI:
 
 
 ---------------------------------------------------
-
+video-8: Login and register pages UI:
+1- 
 
 
 
 
 
 ---------------------------------------------------
+video-9: Caching & .next file (Production Mode VS Dev Mode):
+1- why caching matters?
+  - cache is like.. تخزين مؤقت
+  - the flow [client requests data from server (let's say.. requests posts api), 
+    the api sends the data to nextjs server, the next js server takes a cache from the data "until we need it" ]
 
+2- in the posts page we will cancel caching, because sometimes the posts change, 
+   and we don't want to get old data from the cache that are not updated yet.
 
-
-
+3- to build the project for production use this command:
+   >> npm run build
+   and to see how it looks like after building:
+   >> npm run start 
 
 ---------------------------------------------------
-
+video-1o: CSR vs (SSR vs SSG) in Next.js:
+  clien side rendering: initial load is slow (cuz it's rendered on the client device).
+                        
+  static side generation: ideal for blogs or website that has data that won't be changed.
+  server side rendering: dynamic, server builds html for fresh content
 
 
 
