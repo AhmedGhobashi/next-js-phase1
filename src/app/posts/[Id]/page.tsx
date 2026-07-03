@@ -1,23 +1,48 @@
-import  { TPosts } from "@/utils/types"
-import Link from "next/link";
+"use client";
+import AddCommentForm from "@/components/comments/AddCommentForm";
+import CommentItem from "@/components/comments/CommentItem";
+import { TPosts } from "@/utils/types";
+import axios from "axios";
+import { use, useEffect, useState } from "react";
 
-interface PageProps {
-  params: Promise<{ Id: string }>; 
-}
-const Id = async ({params}: PageProps) => {
-  const {Id}= await params;
-  console.log("Params id", Id);
-    const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${Id}`);
-    const post: TPosts = await res.json();
+const PostPage = ({ params }: { params: Promise<{ id: string }> }) => {
+  const { id } = use(params);
+
+  const [post, setPost] = useState<TPosts | null>(null);
+  const getPost = async () => {
+    try {
+      const res = await axios.get(
+        `https://jsonplaceholder.typicode.com/posts/${id}`
+      );
+      setPost(res.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    getPost();
+  }, []);
+
   return (
-  <>
-    { post&& (<div  className=" text-3xl p-4 text-center bg-blue-500 rounded-2xl text-white shadow-md shadow-emerald-200 hover:scale-105 hover:bg-blue-400 transition-all">
-          <h2 className="font-bold text-black ">{post.title} {}</h2>
-          <p className="text-2xl">{post.body}</p>
-          <Link href='/posts'> wanna go back to posts?..</Link>
-        </div>)}
-  </>
-  )
-}
+    <>
+      <div className="container mx-auto">
+        <div className="my-4 mx-auto p-2 w-full md:w-2/3 bg-gray-400 border-2 border-blue-400 rounded-md">
+          <h2 className="text-2xl font-bold text-green-400">
+            {post?.title} <span className="text-2xl">{post?.id}</span>
+          </h2>
+          <p className="text-sm text-gray-600">{post?.body}</p>
+        </div>
+        <AddCommentForm />
+        <CommentItem comment={"HIIIII"} />
+        <CommentItem comment={"HIIIII"} />
+        <CommentItem comment={"HIIIII"} />
+        <CommentItem comment={"HIIIII"} />
+        <CommentItem comment={"HIIIII"} />
+        <CommentItem comment={"HIIIII"} />
+      </div>
+    </>
+  );
+};
 
-export default Id;
+export default PostPage;

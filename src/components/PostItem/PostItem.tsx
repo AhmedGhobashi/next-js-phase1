@@ -1,20 +1,23 @@
+import { TPosts } from "@/utils/types";
 import Link from "next/link";
 
-import { TPosts } from "@/utils/types"
-
 interface IPostProps {
-    post:TPosts;
+  post: TPosts;
 }
 
-const PostItem = ({post}: IPostProps) =>{
+const PostItem = ({ post }: IPostProps) => {
   return (
+    <div
+      className="p-2 md:w-2/5 lg:w-1/4 bg-gray-400 border-2 border-blue-400 rounded-md"
+      key={post.id}
+    >
+      <h2 className="text-2xl font-bold text-green-400 line-clamp-1">
+        {post.title}
+      </h2>
+      <p className="text-sm text-gray-600 line-clamp-1">{post.body}</p>
+      <Link href={`/posts/${post.id}`}>Read More...</Link>
+    </div>
+  );
+};
 
-       <div   className="md:w-2/5 lg:w-1/4 p-4 text-center bg-blue-500 rounded-2xl text-white shadow-md shadow-emerald-200 hover:scale-105 hover:bg-blue-400 transition-all">
-          <h2 className="font-bold text-black ">{post.title}</h2>
-          <p className="text-sm">{post.body}</p>
-          <Link href={`/posts/${post.id}`}>Read Well...</Link>
-        </div>
-  )
-}
-
-export default PostItem
+export default PostItem;

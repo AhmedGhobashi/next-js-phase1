@@ -33,7 +33,7 @@ const AdminSidebar = ({ isOpen, onClose }: IAdminSidebarProps) => {
       )}
       {/* Aside  */}
       <aside
-        className={`fixed left-0 top-14 md:top-auto h-screen w-64 bg-gradient-to-b from-slate-900 to-slate-800 border-r border-slate-700 shadow-lg transition-transform duration-300 ease-in-out z-40 ${
+        className={`fixed left-0 top-14 md:top-auto h-screen w-64 bg-linear-to-b from-slate-900 to-slate-800 border-r border-slate-700 shadow-lg transition-transform duration-300 ease-in-out z-40 ${
           isOpen ? "translate-x-0" : "-translate-x-full"
         } md:translate-x-0`}
       >

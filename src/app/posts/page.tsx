@@ -1,23 +1,41 @@
-import { TPosts } from "@/utils/types";
-import PostItem from "@/components/PostItem/PostItem";
-import { cache } from "next/dist/server/use-cache/use-cache-wrapper";
+'use client';
+import SearchPostInput from "@/components/SearchPostInput/SearchPostInput";
+import Pagination from "@/components/Pagination/Pagination";
 
-const Posts = async() =>{
-  const res = await fetch("https://jsonplaceholder.typicode.com/posts", {cache: "no-store"} );
-  if(!res.ok){
-    throw new Error("failed to get data");
-  }
-  const posts: TPosts[] =await res.json();
-  console.log(posts);  
+import PostItem from "@/components/PostItem/PostItem";
+import { TPosts } from "@/utils/types";
+import axios from "axios";
+import { useEffect, useState } from "react";
+
+const PostsPage = () => {
+  const [posts, setPosts] = useState<TPosts[]>([]);
+
+  const getPosts = async () => {
+    try {
+      const res = await axios.get("https://jsonplaceholder.typicode.com/posts");
+      setPosts(res.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    getPosts();
+  }, []);
+
   return (
     <>
-    <div className="bg-blue-50 flex  flex-wrap justify-center items-center gap-7">
-      {posts?.map((post)=> (
-       <PostItem key={post.id} post={post} />
-      ))}
-    </div>
+      <div className="container m-auto px-4">
+         <SearchPostInput />
+        <div className="flex items-center justify-center flex-wrap gap-7">
+          {posts?.splice(0,7).map((post) => (
+            <PostItem key={post.id} post={post} />
+          ))}
+        </div>
+        <Pagination />
+      </div>
     </>
-  )
-}
+  );
+};
 
-export default Posts;
+export default PostsPage;

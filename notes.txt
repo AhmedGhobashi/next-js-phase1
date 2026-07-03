@@ -123,5 +123,5 @@ video-1o: CSR vs (SSR vs SSG) in Next.js:
 
 
 ---------------------------------------------------
-
- 
+video.13: using axios with nextjs:
+1-
