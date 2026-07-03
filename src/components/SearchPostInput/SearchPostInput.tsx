@@ -6,10 +6,11 @@ const SearchPostInput = () => {
   const router = useRouter();
   const [searchText, setSearchText] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async(e: React.FormEvent) => {
     e.preventDefault();
-    router.push(`/posts/searchResult?query=${searchText}`);
-    // console.log({ searchText });
+    console.log({ searchText });
+   await router.push(`/posts/searchResult?query=${searchText}`);
+
   };
 
   return (
