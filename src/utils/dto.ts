@@ -3,4 +3,9 @@ interface ICreatePostDTO {
     body: string;
 }
 
-export type {ICreatePostDTO}; 
+interface IUpdatePostDTO {
+    title?: string;
+    body?: string;
+}
+
+export type {ICreatePostDTO, IUpdatePostDTO}; 

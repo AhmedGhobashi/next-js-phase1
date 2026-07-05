@@ -9,7 +9,7 @@ const SearchPostInput = () => {
   const handleSubmit = async(e: React.FormEvent) => {
     e.preventDefault();
     console.log({ searchText });
-   await router.push(`/posts/searchResult?query=${searchText}`);
+    router.push(`/posts/searchResult?query=${searchText}`);
 
   };
 
