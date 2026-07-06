@@ -5,4 +5,11 @@ type TPosts = {
   body: string;
 }
 
-export type {TPosts};
+
+type TUserPayload = {
+  id: number;
+  username: string;
+  isAdmin: boolean;
+};
+
+export type {TPosts, TUserPayload};
