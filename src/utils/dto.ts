@@ -1,11 +1,11 @@
 interface ICreatePostDTO {
     title: string;
-    body: string;
+    content: string;
 }
 
 interface IUpdatePostDTO {
     title?: string;
-    body?: string;
+    content?: string;
 }
 
 export type {ICreatePostDTO, IUpdatePostDTO}; 
