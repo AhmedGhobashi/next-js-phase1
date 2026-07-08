@@ -1,3 +1,40 @@
+## NEXT JS Basic Project
+# Features:
+
+- responsive design
+- flexible and secured CRUD methods
+- authenticationand authorization
+- post and comment
+- seo website
+- real database integration (prisma/postgresql)
+- register and login validation
+
+
+# Tools:
+- React library & Next framework
+- prisma ORM
+- Tailwind CSS framework
+- ZOD library 
+
+
+# Challenges: 
+- Cookies [it was the first time to handle them,it was kinda funny though]
+- Caching Error at the beginning of the course (when you change some files and you find no issue, 
+  try to empty the cache or delete .next folder and run dev the application again, 
+  sometimes Next try to run the project with the old cached data)
+
+
+
+# Upcoming...
+
+Insha'allah I will try to make a new website with more features focusing more on the design & protected routes. 
+
+
+
+
+
+
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
