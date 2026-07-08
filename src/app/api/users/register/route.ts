@@ -8,6 +8,7 @@ import z from "zod";
 
 import { TUserPayload } from "@/utils/types";
 import { generateToken } from "@/utils/generateToken";
+import { setCookie } from "@/utils/generateToken";
 
 export const POST = async (request: NextRequest) => {
   try {
@@ -60,10 +61,12 @@ export const POST = async (request: NextRequest) => {
       isAdmin: newUserData.isAdmin,
     };
 
-    const token = generateToken(userPayload);
+  const cookie = setCookie (userPayload);
     return NextResponse.json(
-      { newUserData, token },
-      { status: 201 },
+      { ...newUserData },
+      { status: 201, headers:{
+        "Set-Cookie": cookie
+      } },
     );
   } catch (error) {
     console.log(error);

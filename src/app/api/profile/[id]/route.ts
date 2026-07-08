@@ -1,6 +1,8 @@
 import { prisma } from "@/utils/lib/prisma";
 import { NextRequest, NextResponse } from "next/server";
 import  Jwt ,{JwtPayload } from "jsonwebtoken";
+import { verifyToken } from "@/utils/verifyToken";
+
 
 
 
@@ -19,25 +21,26 @@ export const DELETE = async (request: NextRequest, { params }: IProps) => {
       return NextResponse.json({ message: "User not found" }, { status: 404 });
     }
 
-    const authToken = request.headers.get("authtoken") as string;
+   const userAuthToken = verifyToken(request);
 
-    if (!authToken) {
+    
+
+if (userAuthToken !== null && userAuthToken.id === user.id) {
+      await prisma.user.delete({ where: { id: parseInt(id) } });
       return NextResponse.json(
-        { message: "not auth token provided"},
-        { status: 201 },
+        { message: "User deleted Successfully" },
+        { status: 200 },
       );
     }
 
-    const userToken = Jwt.verify(authToken, process.env.JWT_SECRET as string ) as JwtPayload;
-
-   if(userToken.id === user.id){
-    await prisma.user.delete({where: {id: parseInt(id)}})
-    return NextResponse.json({message:`user deleted successfully`}, {status:200});
-   }
-
-   return NextResponse.json({message: "your'e not authorized to delete this user"}, {status:201});
-
-
-}catch(error){
-    return NextResponse.json({message: "nah not found 404"}, {status: 404})
-} }
+    return NextResponse.json(
+      { message: "You are not authorized to delete this user!" },
+      { status: 403 },
+    );
+  } catch (error) {
+    return NextResponse.json(
+      { messgae: "Internal Server Error" },
+      { status: 500 },
+    );
+  }
+};
