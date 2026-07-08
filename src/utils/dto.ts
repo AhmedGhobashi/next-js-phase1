@@ -25,4 +25,10 @@ interface IUpdateUserDto {
   password: string;
 }
 
-export type {ICreatePostDTO, IUpdatePostDTO, IRegisterUserDto, ILoginUserDto, IUpdateUserDto}; 
+interface ICreateNewComment {
+  text: string,
+  postId: number,
+}
+
+
+export type {ICreatePostDTO, IUpdatePostDTO, IRegisterUserDto, ILoginUserDto, IUpdateUserDto, ICreateNewComment}; 
