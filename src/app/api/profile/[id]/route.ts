@@ -44,3 +44,39 @@ if (userAuthToken !== null && userAuthToken.id === user.id) {
     );
   }
 };
+
+
+// Get user data for the profile
+export const GET = async (request: NextRequest, { params }: IProps) => {
+  try {
+    const { id } = await params;
+    const user = await prisma.user.findUnique({
+      where: { id: parseInt(id) },
+      select: {
+        id: true,
+        username: true,
+        email: true,
+        isAdmin: true,
+        createdAt: true,
+      },
+    });
+    if (!user) {
+      return NextResponse.json({ messgae: "User not found!" }, { status: 404 });
+    }
+
+    const userAuthToken = verifyToken(request);
+    if (userAuthToken === null || userAuthToken.id !== user.id) {
+      return NextResponse.json(
+        { message: "You are not authorized to view this user!" },
+        { status: 403 },
+      );
+    }
+
+    return NextResponse.json({ user }, { status: 200 });
+  } catch (error) {
+    return NextResponse.json(
+      { messgae: "Internal Server Error!" },
+      { status: 500 },
+    );
+  }
+};
