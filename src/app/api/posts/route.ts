@@ -17,19 +17,22 @@ interface ISinglePosyProps {
 }
 
 // getting all posts
-export const GET = async (request: NextRequest)=>{
-
-    try{
-        const posts = await prisma.post.findMany();
-        console.log(request);
-        return NextResponse.json(posts, {status:200});
-    }catch (error){
-        return NextResponse.json(
+export const GET = async (request: NextRequest) => {
+  try {
+    const pageNumber = request.nextUrl.searchParams.get("page") || "1";
+    const POST_PER_PAGE = 6;
+    const posts = await prisma.post.findMany({
+      skip: (parseInt(pageNumber) - 1) * POST_PER_PAGE,
+      take: POST_PER_PAGE,
+    });
+    return NextResponse.json(posts, { status: 200 });
+  } catch (error) {
+    return NextResponse.json(
       { message: "internal server error" },
       { status: 500 },
     );
-    }
-}
+  }
+};
 
 
 // adding a new post

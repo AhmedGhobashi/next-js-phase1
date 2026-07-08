@@ -30,5 +30,8 @@ interface ICreateNewComment {
   postId: number,
 }
 
+interface IUpdateCommentDto {
+  text: string;
+}
 
-export type {ICreatePostDTO, IUpdatePostDTO, IRegisterUserDto, ILoginUserDto, IUpdateUserDto, ICreateNewComment}; 
+export type {ICreatePostDTO, IUpdatePostDTO, IRegisterUserDto, ILoginUserDto, IUpdateUserDto, ICreateNewComment, IUpdateCommentDto}; 
