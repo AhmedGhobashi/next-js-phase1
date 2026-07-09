@@ -15,7 +15,23 @@ export const GET = async (request: NextRequest, {params}: ISinglePostProps)=>{
 
         const {id}= await params
         
-          const post = await prisma.post.findUnique({where: { id: parseInt(id) }});
+         const post = await prisma.post.findUnique({
+      where: { id: parseInt(id) },
+      include: {
+        comments: {
+          include: {
+            user: {
+              select: {
+                username: true,
+              },
+            },
+          },
+          orderBy: {
+            createdAt: "desc",
+          },
+        },
+      },
+    });
 
         if(!post){
              return NextResponse.json({message: "post not found"}, {status: 400});
